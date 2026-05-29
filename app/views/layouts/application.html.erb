@@ -31,6 +31,9 @@
       <%= button_to t("layouts.application.log_out"), session_path, method: :delete if authenticated? %>
     </nav>
 
+    <div class="notice"><%= flash[:notice] %></div>
+    <div class="alert"><%= flash[:alert] %></div>
+
     <main>
       <%= yield %>
     </main>
