@@ -9,6 +9,23 @@
   </div>
   
   <div>
+    <%= form.label :category_ids, "Categories" %>
+    <%= form.collection_check_boxes :category_ids, Category.order(:name), :id, :name do |b| %>
+      <div>
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
+
+    <% @product.categories.each do |category| %>
+        <span><%= category.name %></span>
+    <% end %>
+
+
+
+  <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.rich_text_area :description %>
   </div>

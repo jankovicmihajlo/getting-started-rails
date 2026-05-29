@@ -1,0 +1,16 @@
+<h1>Categories</h1>
+
+<h2>New category</h2>
+<%= render "form", category: @category %>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= category.name %>
+      <%= link_to "Edit", edit_category_path(category) %>
+      <%= button_to "Delete", category_path(category), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to products", products_path %>
