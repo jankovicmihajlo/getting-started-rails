@@ -1,0 +1,117 @@
+sr:
+  layouts:
+    application:
+      title: "Prodavnica"
+      home: "Početna"
+      log_out: "Odjava"
+      language_en: "EN"
+      language_sr: "SR"
+
+  products:
+    index:
+      title: "Svi proizvodi"
+      new_product: "Novi proizvod"
+      log_in: "Prijava"
+      manage_categories: "Upravljanje kategorijama"
+    show:
+      back: "Nazad"
+      edit: "Izmeni"
+      delete: "Obriši"
+      delete_confirm: "Da li ste sigurni?"
+    new:
+      title: "Novi proizvod"
+    edit:
+      title: "Izmena proizvoda"
+    form:
+      name: "Naziv"
+      price: "Cena"
+      categories: "Kategorije"
+      description: "Opis"
+      featured_image: "Glavna slika"
+      submit: "Sačuvaj proizvod"
+    cancel: "Otkaži"
+
+  categories:
+    index:
+      title: "Kategorije"
+      new_category: "Nova kategorija"
+      edit: "Izmeni"
+      delete: "Obriši"
+      delete_confirm: "Da li ste sigurni?"
+      back_to_products: "Nazad na proizvode"
+    edit:
+      title: "Izmena kategorije"
+    form:
+      name: "Naziv"
+      submit: "Sačuvaj kategoriju"
+    cancel: "Otkaži"
+    notices:
+      created: "Kategorija je kreirana."
+      updated: "Kategorija je ažurirana."
+
+  sessions:
+    new:
+      title: "Prijava"
+      email_placeholder: "Unesite email adresu"
+      password_placeholder: "Unesite lozinku"
+      sign_in: "Prijavi se"
+      forgot_password: "Zaboravili ste lozinku?"
+    alerts:
+      try_again_later: "Pokušajte ponovo kasnije."
+      invalid_credentials: "Pokušajte sa drugom email adresom ili lozinkom."
+
+  passwords:
+    new:
+      title: "Zaboravili ste lozinku?"
+      email_placeholder: "Unesite email adresu"
+      submit: "Pošalji uputstva za reset"
+    edit:
+      title: "Ažurirajte lozinku"
+      password_placeholder: "Unesite novu lozinku"
+      password_confirmation_placeholder: "Ponovite novu lozinku"
+      submit: "Sačuvaj"
+    alerts:
+      try_again_later: "Pokušajte ponovo kasnije."
+      passwords_mismatch: "Lozinke se ne poklapaju."
+      invalid_token: "Link za reset lozinke je nevažeći ili je istekao."
+    notices:
+      instructions_sent: "Uputstva za reset su poslata (ako korisnik sa tom adresom postoji)."
+      reset_success: "Lozinka je resetovana."
+
+  activerecord:
+    models:
+      product: "Proizvod"
+      category: "Kategorija"
+    attributes:
+      product:
+        name: "Naziv"
+        price: "Cena"
+        description: "Opis"
+        featured_image: "Glavna slika"
+        category_ids: "Kategorije"
+      category:
+        name: "Naziv"
+    errors:
+      models:
+        product:
+          attributes:
+            name:
+              blank: "ne sme biti prazno"
+            price:
+              blank: "ne sme biti prazno"
+              not_a_number: "nije broj"
+              greater_than_or_equal_to: "mora biti veće ili jednako od %{count}"
+        category:
+          attributes:
+            name:
+              blank: "ne sme biti prazno"
+              taken: "je već zauzeto"
+
+  number:
+    currency:
+      format:
+        unit: " $"
+        format: "%n%u"
+        separator: ","
+        delimiter: "."
+        precision: 2

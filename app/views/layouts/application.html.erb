@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Store" %></title>
+    <title><%= content_for(:title) || t("layouts.application.title") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Store">
+    <meta name="application-name" content="<%= t("layouts.application.title") %>">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,8 +25,10 @@
 
   <body>
     <nav>
-      <%= link_to "Home", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      <%= link_to t("layouts.application.home"), root_path %>
+      <%= button_to t("layouts.application.language_en"), locale_path(locale: :en), method: :patch %>
+      <%= button_to t("layouts.application.language_sr"), locale_path(locale: :sr), method: :patch %>
+      <%= button_to t("layouts.application.log_out"), session_path, method: :delete if authenticated? %>
     </nav>
 
     <main>

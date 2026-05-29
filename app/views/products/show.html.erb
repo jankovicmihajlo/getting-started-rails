@@ -1,13 +1,15 @@
 <% cache @product do %>
-    <h1><%= @product.name %></h1>
-    <%= image_tag @product.featured_image if @product.featured_image.attached? %>
-    <p><%= number_to_currency(@product.price) if @product.price.present? %></p> 
-    <%= @product.description %>
+  <h1><%= @product.name %></h1>
+  <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+  <% if @product.price.present? %>
+    <p><%= number_to_currency(@product.price, locale: I18n.locale) %></p>
+  <% end %>
+  <%= @product.description %>
 <% end %>
 
-<%= link_to "Back", products_path %>
+<%= link_to t(".back"), products_path %>
 
 <% if authenticated? %>
-    <%= link_to "Edit", edit_product_path(@product) %>
-    <%= link_to "Delete", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%= link_to t(".edit"), edit_product_path(@product) %>
+  <%= link_to t(".delete"), product_path(@product), data: { turbo_method: :delete, turbo_confirm: t(".delete_confirm") } %>
 <% end %>

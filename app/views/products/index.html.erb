@@ -1,14 +1,14 @@
-<h1>All Products</h1>
+<h1><%= t(".title") %></h1>
 
-<%= link_to "New product", new_product_path if authenticated? %>
-<%= link_to "Log in", new_session_path unless authenticated? %>
-<%= link_to "Manage categories", categories_path if authenticated? %>
+<%= link_to t(".new_product"), new_product_path if authenticated? %>
+<%= link_to t(".log_in"), new_session_path unless authenticated? %>
+<%= link_to t(".manage_categories"), categories_path if authenticated? %>
 
 <div id="products">
   <% @products.each do |product| %>
     <div>
         <%= link_to product.name, product_path(product.id) %>
-        - <%= number_to_currency(product.price) if product.price.present? %>
+        - <%= number_to_currency(product.price, locale: I18n.locale) %>
     </div>
   <% end %>
 </div>
