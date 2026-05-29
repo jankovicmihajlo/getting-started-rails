@@ -23,7 +23,10 @@
         <span><%= category.name %></span>
     <% end %>
 
-
+    <div>
+      <%= form.label :featured_image, style: "display: block"%>
+      <%= form.file_field :featured_image, accept: "image/*" %>
+    </div>  
 
   <div>
     <%= form.label :description, style: "display: block" %>
@@ -31,8 +34,8 @@
   </div>
 
   <div>
-    <%= form.label :featured_image, style: "display: block"%>
-    <%= form.file_field :featured_image, accept: "image/*" %>
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.01, min: 0 %>
   </div>
 
   <div>
